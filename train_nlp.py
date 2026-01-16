@@ -23,11 +23,7 @@ from sklearn.model_selection import train_test_split
 
 
 def generate_synthetic_sentiment_data() -> pd.DataFrame:
-    """Create a small synthetic sentiment dataset.
-
-    Returns:
-        DataFrame with columns `text` and `label` (1=positive, 0=negative).
-    """
+    
     positive_sentences = [
         "I love this product!",
         "Amazing service and friendly staff.",
@@ -67,16 +63,7 @@ def save_dataset(df: pd.DataFrame, out_path: str) -> None:
 
 
 def train_sentiment_model(df: pd.DataFrame):
-    """Train a logistic regression sentiment classifier.
-
-    Args:
-        df (DataFrame): Dataset with `text` and `label` columns.
-
-    Returns:
-        vectorizer (TfidfVectorizer): fitted TF‑IDF vectorizer.
-        model (LogisticRegression): trained classifier.
-        metrics (dict): accuracy and F1 metrics.
-    """
+    
     X = df['text']
     y = df['label']
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=0, stratify=y)
